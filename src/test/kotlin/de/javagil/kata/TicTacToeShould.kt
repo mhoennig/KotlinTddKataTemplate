@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import org.junit.jupiter.params.provider.ValueSource
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class TicTacToeShould {
@@ -78,16 +79,25 @@ internal class TicTacToeShould {
         assertk.assert(playerXIsWinner).isTrue()
     }
 
-    @Test
-    internal fun `have no winner if the board does not contain three equal markers in a row`() {
+    @ParameterizedTest(name = "given the board {0} then there is no winner")
+    @ValueSource(strings = arrayOf(
+            "··· ··· ···",
+            "XOX ·O· OX·",
+            "·O· ·OX ·X·",
+            "··· ··· ···",
+            "XXO OOX OOX")
+    )
+    internal fun `have no winner if the board does not contain three equal markers in a row`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe("XOX ·O· OX·")
+        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
+        val playerOIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.O)
 
         // then
         assertk.assert(playerXIsWinner).isFalse()
+        assertk.assert(playerOIsWinner).isFalse()
     }
 }
 
