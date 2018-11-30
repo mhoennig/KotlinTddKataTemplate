@@ -75,7 +75,7 @@ internal class TicTacToeShould {
     )
     internal fun `have winner X if all X in same row`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+        val givenBoardWithTwoXInFirstRow = TicTacToeGame(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
@@ -92,10 +92,10 @@ internal class TicTacToeShould {
     )
     internal fun `have winner X if all X in same column`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+        val givenBoardWithTwoXInFirstRow = TicTacToeGame(givenBoard)
 
         // when
-        val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
+        val playerXIsWinner = givenBoardWithTwoXInFirstRow. isWinner(Player.X)
 
         // then
         assertk.assert(playerXIsWinner).isTrue()
@@ -108,7 +108,7 @@ internal class TicTacToeShould {
     )
     internal fun `have winner X if all X in any diagonal`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+        val givenBoardWithTwoXInFirstRow = TicTacToeGame(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
@@ -125,7 +125,7 @@ internal class TicTacToeShould {
     )
     internal fun `have winner O if all O in same row`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+        val givenBoardWithTwoXInFirstRow = TicTacToeGame(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.O)
@@ -142,7 +142,7 @@ internal class TicTacToeShould {
     )
     internal fun `have winner O if all O in same column`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+        val givenBoardWithTwoXInFirstRow = TicTacToeGame(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.O)
@@ -161,7 +161,7 @@ internal class TicTacToeShould {
     )
     internal fun `have no winner if the board does not contain three equal markers in a row`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+        val givenBoardWithTwoXInFirstRow = TicTacToeGame(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
