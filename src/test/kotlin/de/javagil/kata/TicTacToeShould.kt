@@ -63,6 +63,18 @@ internal class TicTacToeShould {
         // then
         assertk.assert(throwable).isNotNull()
     }
+
+    @Test
+    internal fun `have winner X if all X in first row`() {
+        // given
+        val givenBoardWithTwoXInFirstRow = game.move(Player.X, 0, 0).move(Player.O, 1, 0).move(Player.X, 0, 1).move(Player.O, 1, 1);
+
+        // when
+        val actualGame = givenBoardWithTwoXInFirstRow.move(Player.X, 0, 2)
+
+        // then
+        assertk.assert(actualGame.isWinner(Player.X)).isTrue()
+    }
 }
 
 private fun assertBoardOf(game: TicTacToe): BoardAssert = BoardAssert(game)
