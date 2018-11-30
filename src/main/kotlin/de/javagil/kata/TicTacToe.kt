@@ -1,6 +1,10 @@
 package de.javagil.kata
 
-class TicTacToe(val board: String = EMPTY_BOARD, private val lastPlayer: Player? = null) {
+class TicTacToe private constructor(val board: String = EMPTY_BOARD, private val lastPlayer: Player? = null) {
+
+    companion object {
+        fun newGame() = TicTacToe()
+    }
 
     override fun toString() = board
 

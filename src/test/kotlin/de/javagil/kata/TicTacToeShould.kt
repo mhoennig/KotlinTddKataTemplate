@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.CsvSource
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class TicTacToeShould {
 
-    private val game = TicTacToe()
+    private val game = TicTacToe.newGame()
 
     @Test
     internal fun `initially start with an empty board`() {
