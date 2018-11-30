@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val kotlin_version = "1.3.10"
 val junit_jupiter_version = "5.3.2"
 val assertk_version = "0.12"
+val mockk_version = "1.8.13.kotlin13"
 
 plugins {
     kotlin("jvm") version "1.3.10"
@@ -18,6 +19,8 @@ dependencies {
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_jupiter_version")
 
     testCompile("com.willowtreeapps.assertk:assertk-jvm:$assertk_version")
+
+    testCompile( "io.mockk:mockk:$mockk_version")
 
     compile("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
     compile(kotlin("stdlib-jdk8"))
