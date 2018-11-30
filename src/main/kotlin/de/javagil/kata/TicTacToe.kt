@@ -1,9 +1,8 @@
 package de.javagil.kata
 
-class TicTacToe(val board: String = EMTPY_BOARD, private val lastPlayer: Player? = null) {
+class TicTacToe(val board: String = EMPTY_BOARD, private val lastPlayer: Player? = null) {
 
     override fun toString() = board
-
 
     fun move(player: Player, row: Int, col: Int): TicTacToe {
         if (player == lastPlayer) {
@@ -26,4 +25,4 @@ enum class Player {
 
 private const val EMPTY_FIELD = "·"
 
-private const val EMTPY_BOARD = "··· ··· ···"
+private const val EMPTY_BOARD = "··· ··· ···"
