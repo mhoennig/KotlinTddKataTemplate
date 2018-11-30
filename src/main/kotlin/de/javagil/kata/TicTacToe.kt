@@ -1,16 +1,18 @@
 package de.javagil.kata
 
-class TicTacToe(val board: String = EMTPY_BOARD) {
+class TicTacToe(val board: String = EMTPY_BOARD, private val lastPlayer: Player? = null) {
 
     override fun toString() = board
 
 
-
     fun move(player: Player, row: Int, col: Int): TicTacToe {
+        if (player == lastPlayer) {
+            throw IllegalAccessError()
+        }
         if (board.substring(atPosition(row, col)) != EMPTY_FIELD) {
             throw IllegalStateException()
         }
-        return TicTacToe(board.replaceRange(atPosition(row, col), player.name))
+        return TicTacToe(board.replaceRange(atPosition(row, col), player.name), player)
     }
 
     private fun atPosition(row: Int, col: Int) = position(row, col)..position(row, col)
