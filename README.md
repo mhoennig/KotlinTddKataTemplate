@@ -1,5 +1,8 @@
-# Starter for Code Katas with Kotlin/JVM using JUnit5-Jupiter and AssertK
+# Tic Tac Toe Code Kata with Kotlin/JVM using JUnit5-Jupiter and AssertK
 
-This starter can be used as a template for Code Katas with Kotlin.
+This branch demonstrates a Tic Tac Toe Code Kata with separate commit for each step:
+- make it fail (red)
+- make it pass (green)
+- make it clean (still green)
 
-It contains two example test methods, one which passes and one which would deliberately but is disabled.
+That means, for some of the commits the tests are deliberately failing.
