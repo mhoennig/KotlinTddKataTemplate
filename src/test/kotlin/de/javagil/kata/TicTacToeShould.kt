@@ -20,7 +20,8 @@ internal class TicTacToeShould {
     @CsvSource(
             "0, 0, X·· ··· ···",
             "1, 2, ··· ··X ···",
-            "1, 1, ··· ·X· ···"
+            "1, 1, ··· ·X· ···",
+            "2, 2, ··· ··· ··X"
     )
     internal fun `set X at free position`(row: Int, col: Int, expectedBoard: String) {
         // when
