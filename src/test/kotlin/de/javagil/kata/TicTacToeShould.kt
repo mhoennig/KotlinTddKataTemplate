@@ -25,7 +25,7 @@ internal class TicTacToeShould {
     )
     internal fun `set X at free position`(row: Int, col: Int, expectedBoard: String) {
         // when
-        val actual = game.setX(row, col)
+        val actual = game.move(Player.X, row, col)
 
         // then
         assertBoardOf(actual).isEqualTo(expectedBoard)
