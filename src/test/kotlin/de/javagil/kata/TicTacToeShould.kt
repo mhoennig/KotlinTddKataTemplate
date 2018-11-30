@@ -157,7 +157,7 @@ internal class TicTacToeShould {
             "XOX ·O· OX·",
             "·O· ·OX ·X·",
             "··· ··· ···",
-            "XXO OOX OOX")
+            "OXO OOX XOX")
     )
     internal fun `have no winner if the board does not contain three equal markers in a row`(givenBoard: String) {
         // given
