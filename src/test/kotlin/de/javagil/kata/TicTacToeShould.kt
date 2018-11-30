@@ -21,7 +21,11 @@ internal class TicTacToeShould {
             "X, 0, 0, X·· ··· ···",
             "X, 1, 2, ··· ··X ···",
             "X, 1, 1, ··· ·X· ···",
-            "X, 2, 2, ··· ··· ··X"
+            "X, 2, 2, ··· ··· ··X",
+            "O, 0, 0, O·· ··· ···",
+            "O, 1, 2, ··· ··O ···",
+            "O, 1, 1, ··· ·O· ···",
+            "O, 2, 2, ··· ··· ··O"
     )
     internal fun `make move at free position`(player: Player, row: Int, col: Int, expectedBoard: String) {
         // when
