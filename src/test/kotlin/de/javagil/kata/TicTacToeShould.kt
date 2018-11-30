@@ -45,6 +45,15 @@ internal class TicTacToeShould {
         // then
         assertk.assert(throwable).isNotNull();
     }
+
+    @Test
+    internal fun `not allow repeated moves by player X`() {
+        // when
+        val throwable = catch({ game.move(Player.X, 0, 0).move(Player.X, 1, 0) })
+
+        // then
+        assertk.assert(throwable).isNotNull();
+    }
 }
 
 private fun assertBoardOf(game: TicTacToe): BoardAssert = BoardAssert(game)
