@@ -14,7 +14,11 @@ internal class TicTacToeShould {
 
     @Test
     internal fun `set X at free position`() {
-        assertk.assert(game.setX(0,0).toString()).isEqualTo("X·· ··· ···")
+        // when
+        val actual = game.setX(0, 0)
+
+        // then
+        assertk.assert(actual.toString()).isEqualTo("X·· ··· ···")
     }
 }
 
