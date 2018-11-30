@@ -67,10 +67,15 @@ internal class TicTacToeShould {
         assertk.assert(throwable).isNotNull()
     }
 
-    @Test
-    internal fun `have winner X if all X in first row`() {
+    @ParameterizedTest(name = "given the board {0} then player X is the winner")
+    @ValueSource(strings = arrayOf(
+            "XXX ··· OO·",
+            "·O· XXX OX·",
+            "·O· OOX XXX")
+    )
+    internal fun `have winner X if all X in first row`(givenBoard: String) {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe("XXX ··· OO·")
+        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
