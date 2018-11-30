@@ -16,14 +16,14 @@ internal class TicTacToeShould {
         assertk.assert(game.toString()).isEqualTo("··· ··· ···")
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "set {0} at {1}, {2} should result in {3}")
     @CsvSource(
-            "0, 0, X·· ··· ···",
-            "1, 2, ··· ··X ···",
-            "1, 1, ··· ·X· ···",
-            "2, 2, ··· ··· ··X"
+            "X, 0, 0, X·· ··· ···",
+            "X, 1, 2, ··· ··X ···",
+            "X, 1, 1, ··· ·X· ···",
+            "X, 2, 2, ··· ··· ··X"
     )
-    internal fun `set X at free position`(row: Int, col: Int, expectedBoard: String) {
+    internal fun `make move at free position`(player: Player, row: Int, col: Int, expectedBoard: String) {
         // when
         val actual = game.move(Player.X, row, col)
 
