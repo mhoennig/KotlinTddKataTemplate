@@ -1,6 +1,7 @@
 package de.javagil.kata
 
 import assertk.assertions.isEqualTo
+import assertk.assertions.isFalse
 import assertk.assertions.isNotNull
 import assertk.assertions.isTrue
 import assertk.catch
@@ -68,13 +69,25 @@ internal class TicTacToeShould {
     @Test
     internal fun `have winner X if all X in first row`() {
         // given
-        val givenBoardWithTwoXInFirstRow = TicTacToe("XXX ··· OO·", Player.O)
+        val givenBoardWithTwoXInFirstRow = TicTacToe("XXX ··· OO·")
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
 
         // then
         assertk.assert(playerXIsWinner).isTrue()
+    }
+
+    @Test
+    internal fun `have no winner if the board does not contain three equal markers in a row`() {
+        // given
+        val givenBoardWithTwoXInFirstRow = TicTacToe("XOX ·O· OX·")
+
+        // when
+        val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
+
+        // then
+        assertk.assert(playerXIsWinner).isFalse()
     }
 }
 
