@@ -29,24 +29,6 @@ internal class TicTacToeShould {
         // then
         assertBoardOf(actual).isEqualTo(expectedBoard)
     }
-
-    @Test
-    internal fun `set X at free position 1, 2`() {
-        // when
-        val actual = game.setX(1, 2)
-
-        // then
-        assertBoardOf(actual).isEqualTo("··· ··X ···")
-    }
-
-    @Test
-    internal fun `set X at free position 1, 1`() {
-        // when
-        val actual = game.setX(1, 1)
-
-        // then
-        assertBoardOf(actual).isEqualTo("··· ·X· ···")
-    }
 }
 
 private fun assertBoardOf(game: TicTacToe): BoardAssert = BoardAssert(game)
