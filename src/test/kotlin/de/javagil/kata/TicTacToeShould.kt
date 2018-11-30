@@ -37,7 +37,10 @@ internal class TicTacToeShould {
         assertBoardOf(actual).isEqualTo(expectedBoard)
     }
 
-    @Test
+    @ParameterizedTest(name = "given {0} and {1} making a move at position {2}, {3} should throw exception")
+    @CsvSource(
+            "O·· ··· ···, O, 0, 0"
+    )
     internal fun `not make move at occupied position`() {
         // given
         val givenPositionIsOccupied = game.move(Player.O, 0, 0)
