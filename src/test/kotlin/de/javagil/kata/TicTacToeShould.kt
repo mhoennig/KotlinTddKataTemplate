@@ -18,11 +18,15 @@ internal class TicTacToeShould {
         val actual = game.setX(0, 0)
 
         // then
-        assertBoardOfIs(actual, "X·· ··· ···")
+        assertBoardOf(actual).isEqualTo("X·· ··· ···")
     }
+}
 
-    private fun assertBoardOfIs(game: String, expected: String) {
-        assertk.assert(game.toString()).isEqualTo(expected)
+private fun assertBoardOf(game: String): BoardAssert = BoardAssert(game)
+
+private class BoardAssert(val game: String) {
+    fun isEqualTo(expected: String) {
+        assertk.assert(game).isEqualTo(expected)
     }
 }
 
