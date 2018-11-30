@@ -5,5 +5,5 @@ class TicTacToe {
 
     override fun toString() = board
 
-    fun setX(row: Int, col: Int) = "X·· ··· ···"
+    fun setX(row: Int, col: Int) = if (row == 0) "X·· ··· ···" else "··· ··X ···"
 }
