@@ -1,6 +1,7 @@
 package de.javagil.kata
 
-class TicTacToe private constructor(val board: String = EMPTY_BOARD, private val lastPlayer: Player? = null) {
+// Design-Decision-Record for 'internal' access see [1] below
+class TicTacToe internal constructor(val board: String = EMPTY_BOARD, private val lastPlayer: Player? = null) {
 
     companion object {
         fun newGame() = TicTacToe()
@@ -31,3 +32,17 @@ enum class Player {
 private const val EMPTY_FIELD = "·"
 
 private const val EMPTY_BOARD = "··· ··· ···"
+
+// [1] Design-Decision-Record for 'internal' access:
+//
+// In the context of
+//      writing the unit test for isWinner(...)
+// I decided
+//      to widen access to the constructor to internal
+// in order to
+//      make the test setup shorter an better readable
+// accepting that
+//      it could be called from other code within the module.
+// I neglected the alternative
+//      to use a delegate to a Board class which could be mocked
+//      because it would as well need an extra method or accessible constructor to pass a mock to the game.

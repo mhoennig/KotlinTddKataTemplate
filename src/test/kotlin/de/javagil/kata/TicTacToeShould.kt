@@ -68,13 +68,13 @@ internal class TicTacToeShould {
     @Test
     internal fun `have winner X if all X in first row`() {
         // given
-        val givenBoardWithTwoXInFirstRow = game.move(Player.X, 0, 0).move(Player.O, 1, 0).move(Player.X, 0, 1).move(Player.O, 1, 1)
+        val givenBoardWithTwoXInFirstRow = TicTacToe("XXX ··· OO·", Player.O)
 
         // when
-        val actualGame = givenBoardWithTwoXInFirstRow.move(Player.X, 0, 2)
+        val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
 
         // then
-        assertk.assert(actualGame.isWinner(Player.X)).isTrue()
+        assertk.assert(playerXIsWinner).isTrue()
     }
 }
 
