@@ -39,7 +39,10 @@ internal class TicTacToeShould {
 
     @ParameterizedTest(name = "given {0} and {1} making a move at position {2}, {3} should throw exception")
     @CsvSource(
-            "O·· ··· ···, O, 0, 0"
+            "O·· ··· ···, O, 0, 0",
+            "··· ··X ···, X, 1, 2",
+            "X·· ··· ···, O, 0, 0",
+            "··· ··· ·O·, X, 2, 1"
     )
     internal fun `not make move at occupied position`() {
         // given
