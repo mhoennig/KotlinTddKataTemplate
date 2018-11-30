@@ -73,12 +73,29 @@ internal class TicTacToeShould {
             "·O· XXX OX·",
             "·O· OOX XXX")
     )
-    internal fun `have winner X if all X in first row`(givenBoard: String) {
+    internal fun `have winner X if all X in same row`(givenBoard: String) {
         // given
         val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
 
         // when
         val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
+
+        // then
+        assertk.assert(playerXIsWinner).isTrue()
+    }
+
+    @ParameterizedTest(name = "given the board {0} then player O is the winner")
+    @ValueSource(strings = arrayOf(
+            "OOO ··· XX·",
+            "·X· OOO OX·",
+            "·X· XXO OOO")
+    )
+    internal fun `have winner O if all O in same row`(givenBoard: String) {
+        // given
+        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+
+        // when
+        val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.O)
 
         // then
         assertk.assert(playerXIsWinner).isTrue()
