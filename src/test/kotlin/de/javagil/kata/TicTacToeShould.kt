@@ -39,11 +39,14 @@ internal class TicTacToeShould {
 
     @Test
     internal fun `not make move at occupied position`() {
+        // given
+        val givenPositionIsOccupied = game.move(Player.O, 0, 0)
+
         // when
-        val throwable = catch({ game.move(Player.O, 0, 0).move(Player.X, 0, 0) })
+        val throwable = catch({ givenPositionIsOccupied.move(Player.X, 0, 0) })
 
         // then
-        assertk.assert(throwable).isNotNull();
+        assertk.assert(throwable).isNotNull()
     }
 
     @Test
@@ -52,7 +55,7 @@ internal class TicTacToeShould {
         val throwable = catch({ game.move(Player.X, 0, 0).move(Player.X, 1, 0) })
 
         // then
-        assertk.assert(throwable).isNotNull();
+        assertk.assert(throwable).isNotNull()
     }
 }
 
