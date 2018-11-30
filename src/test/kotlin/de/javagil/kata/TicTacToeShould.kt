@@ -101,6 +101,22 @@ internal class TicTacToeShould {
         assertk.assert(playerXIsWinner).isTrue()
     }
 
+    @ParameterizedTest(name = "given the board {0} then player X is the winner")
+    @ValueSource(strings = arrayOf(
+            "XO· .XO ·OX",
+            "O·X .XO X·O")
+    )
+    internal fun `have winner X if all X in any diagonal`(givenBoard: String) {
+        // given
+        val givenBoardWithTwoXInFirstRow = TicTacToe(givenBoard)
+
+        // when
+        val playerXIsWinner = givenBoardWithTwoXInFirstRow.isWinner(Player.X)
+
+        // then
+        assertk.assert(playerXIsWinner).isTrue()
+    }
+
     @ParameterizedTest(name = "given the board {0} then player O is the winner")
     @ValueSource(strings = arrayOf(
             "OOO ··· XX·",
