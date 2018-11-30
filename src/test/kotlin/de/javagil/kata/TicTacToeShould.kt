@@ -8,11 +8,6 @@ internal class TicTacToeShould {
     private val game = TicTacToe()
 
     @Test
-    internal fun `create a tic tac toe game`() {
-        game
-    }
-
-    @Test
     internal fun `initially start with an empty board`() {
         assertk.assert(game.toString()).isEqualTo("··· ··· ···")
     }
