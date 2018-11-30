@@ -31,11 +31,11 @@ internal class TicTacToeShould {
     }
 }
 
-private fun assertBoardOf(game: String): BoardAssert = BoardAssert(game)
+private fun assertBoardOf(game: TicTacToe): BoardAssert = BoardAssert(game)
 
-private class BoardAssert(val game: String) {
+private class BoardAssert(val game: TicTacToe) {
     fun isEqualTo(expected: String) {
-        assertk.assert(game).isEqualTo(expected)
+        assertk.assert(game.toString()).isEqualTo(expected)
     }
 }
 

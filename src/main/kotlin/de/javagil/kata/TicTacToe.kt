@@ -1,9 +1,8 @@
 package de.javagil.kata
 
-class TicTacToe {
-    private val board = "··· ··· ···"
+class TicTacToe(val board: String = "··· ··· ···") {
 
     override fun toString() = board
 
-    fun setX(row: Int, col: Int) = if (row == 0) "X·· ··· ···" else "··· ··X ···"
+    fun setX(row: Int, col: Int) = if (row == 0) TicTacToe("X·· ··· ···") else TicTacToe("··· ··X ···")
 }
