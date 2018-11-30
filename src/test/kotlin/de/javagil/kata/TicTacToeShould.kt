@@ -1,6 +1,8 @@
 package de.javagil.kata
 
 import assertk.assertions.isEqualTo
+import assertk.assertions.isNotNull
+import assertk.catch
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.params.ParameterizedTest
@@ -33,6 +35,15 @@ internal class TicTacToeShould {
 
         // then
         assertBoardOf(actual).isEqualTo(expectedBoard)
+    }
+
+    @Test
+    internal fun `not make move at occupied position`() {
+        // when
+        val throwable = catch({ game.move(Player.O, 0, 0).move(Player.X, 0, 0) })
+
+        // then
+        assertk.assert(throwable).isNotNull();
     }
 }
 
