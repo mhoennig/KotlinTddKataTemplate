@@ -1,5 +1,7 @@
 package de.javagil.kata
 
 class TicTacToe {
-    override fun toString() = "··· ··· ···"
+    private val board = "··· ··· ···"
+
+    override fun toString() = board
 }
