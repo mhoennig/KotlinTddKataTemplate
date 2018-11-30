@@ -7,6 +7,9 @@ class TicTacToe internal constructor(val board: String = EMPTY_BOARD, private va
         fun newGame() = TicTacToe()
     }
 
+    private val transposedBoard: String get() =
+        "${board[0]}${board[4]}${board[8]} ${board[1]}${board[5]}${board[9]} ${board[2]}${board[6]}${board[10]}"
+
     override fun toString() = board
 
     fun move(player: Player, row: Int, col: Int): TicTacToe {
@@ -19,7 +22,7 @@ class TicTacToe internal constructor(val board: String = EMPTY_BOARD, private va
         return TicTacToe(board.replaceRange(atPosition(row, col), player.name), player)
     }
 
-    fun isWinner(player: Player) = board.contains(player.name.repeat(3))
+    fun isWinner(player: Player) = board.contains(player.name.repeat(3)) || transposedBoard.contains(player.name.repeat(3))
 
     private fun atPosition(row: Int, col: Int) = position(row, col)..position(row, col)
     private fun position(row: Int, col: Int) = 4 * row + col
