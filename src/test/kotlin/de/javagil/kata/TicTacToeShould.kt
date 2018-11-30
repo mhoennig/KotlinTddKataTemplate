@@ -5,19 +5,21 @@ import org.junit.jupiter.api.Test
 
 internal class TicTacToeShould {
 
+    private val game = TicTacToe()
+
     @Test
     internal fun `create a tic tac toe game`() {
-        TicTacToe()
+        game
     }
 
     @Test
     internal fun `initially start with an empty board`() {
-        assertk.assert(TicTacToe().toString()).isEqualTo("··· ··· ···")
+        assertk.assert(game.toString()).isEqualTo("··· ··· ···")
     }
 
     @Test
     internal fun `set X at free position`() {
-        assertk.assert(TicTacToe().setX(0,0).toString()).isEqualTo("X·· ··· ···")
+        assertk.assert(game.setX(0,0).toString()).isEqualTo("X·· ··· ···")
     }
 }
 
