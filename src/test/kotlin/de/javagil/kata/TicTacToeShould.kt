@@ -2,7 +2,11 @@ package de.javagil.kata
 
 import assertk.assertions.isEqualTo
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class TicTacToeShould {
 
     private val game = TicTacToe()
@@ -12,13 +16,18 @@ internal class TicTacToeShould {
         assertk.assert(game.toString()).isEqualTo("··· ··· ···")
     }
 
-    @Test
-    internal fun `set X at free position`() {
+    @ParameterizedTest
+    @CsvSource(
+            "0, 0, X·· ··· ···",
+            "1, 2, ··· ··X ···",
+            "1, 1, ··· ·X· ···"
+    )
+    internal fun `set X at free position`(row: Int, col: Int, expectedBoard: String) {
         // when
-        val actual = game.setX(0, 0)
+        val actual = game.setX(row, col)
 
         // then
-        assertBoardOf(actual).isEqualTo("X·· ··· ···")
+        assertBoardOf(actual).isEqualTo(expectedBoard)
     }
 
     @Test
