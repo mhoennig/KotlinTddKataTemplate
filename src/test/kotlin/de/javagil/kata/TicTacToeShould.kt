@@ -9,3 +9,7 @@ internal class TicTacToeShould {
         TicTacToe()
     }
 }
+
+class TicTacToe {
+
+}
