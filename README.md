@@ -1,4 +1,4 @@
-# Starter for Code Katas with Kotlin/JVM using JUnit5-Jupiter, AssertK and MockK
+# Tic Tac Toe Code Katas with Kotlin/JVM using JUnit5-Jupiter, AssertK and MockK
 
 This branch demonstrates a Tic Tac Toe Code Kata with separate commit for each step:
 - make it fail (red)
