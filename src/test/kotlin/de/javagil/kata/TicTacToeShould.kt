@@ -14,5 +14,10 @@ internal class TicTacToeShould {
     internal fun `initially start with an empty board`() {
         assertk.assert(TicTacToe().toString()).isEqualTo("··· ··· ···")
     }
+
+    @Test
+    internal fun `set X at free position`() {
+        assertk.assert(TicTacToe().setX(0,0).toString()).isEqualTo("X·· ··· ···")
+    }
 }
 
