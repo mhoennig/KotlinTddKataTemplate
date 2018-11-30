@@ -2,6 +2,7 @@ package de.javagil.kata
 
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNotNull
+import assertk.assertions.isTrue
 import assertk.catch
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -67,7 +68,7 @@ internal class TicTacToeShould {
     @Test
     internal fun `have winner X if all X in first row`() {
         // given
-        val givenBoardWithTwoXInFirstRow = game.move(Player.X, 0, 0).move(Player.O, 1, 0).move(Player.X, 0, 1).move(Player.O, 1, 1);
+        val givenBoardWithTwoXInFirstRow = game.move(Player.X, 0, 0).move(Player.O, 1, 0).move(Player.X, 0, 1).move(Player.O, 1, 1)
 
         // when
         val actualGame = givenBoardWithTwoXInFirstRow.move(Player.X, 0, 2)

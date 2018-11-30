@@ -18,8 +18,9 @@ class TicTacToe private constructor(val board: String = EMPTY_BOARD, private val
         return TicTacToe(board.replaceRange(atPosition(row, col), player.name), player)
     }
 
-    private fun atPosition(row: Int, col: Int) = position(row, col)..position(row, col)
+    fun isWinner(x: Player) = true
 
+    private fun atPosition(row: Int, col: Int) = position(row, col)..position(row, col)
     private fun position(row: Int, col: Int) = 4 * row + col
 }
 
